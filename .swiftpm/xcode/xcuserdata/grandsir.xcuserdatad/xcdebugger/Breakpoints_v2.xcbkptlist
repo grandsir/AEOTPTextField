@@ -3,22 +3,4 @@
    uuid = "93B9424C-C229-4567-97C2-A7E371C442C8"
    type = "1"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "224C5510-8A0A-42B6-94A8-CE76DFD30265"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AEOTPTextField/Source/SwiftUI/Core/AEOTPView.swift"
-            startingColumnNumber = "19"
-            endingColumnNumber = "33"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>
