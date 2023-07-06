@@ -53,6 +53,7 @@ public struct AEOTPView: View {
     private var onCommit: (() -> Void)?
     /// Type of keyboard to show
     private let keyboardType: UIKeyboardType
+    private let firstTextFieldActivated: Bool
 
     // MARK: - INIT
 
@@ -96,6 +97,7 @@ public struct AEOTPView: View {
         isSecureTextEntry: Bool = false,
         enableClearOTP: Bool = false,
         onCommit: (() -> Void)? = nil,
+        firstTextFieldActivated: Bool = false,
         keyboardType: UIKeyboardType = .numberPad
     ) {
         self._text = text
@@ -117,6 +119,7 @@ public struct AEOTPView: View {
         self.enableClearOTP = enableClearOTP
         self.onCommit = onCommit
         self.keyboardType = keyboardType
+        self.firstTextFieldActivated = firstTextFieldActivated
     }
 
     // MARK: - BODY
@@ -159,7 +162,8 @@ public struct AEOTPView: View {
             otpFont: otpFont,
             isSecureTextEntry: isSecureTextEntry,
             onCommit: onCommit,
-            keyboardType: keyboardType
+            keyboardType: keyboardType,
+            firstTextFieldActivated: firstTextFieldActivated
         )
     } //: otpView
 }
