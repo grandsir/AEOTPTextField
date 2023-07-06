@@ -18,8 +18,8 @@ public class AEOTPTextField: UITextField {
   public var otpBackgroundColor: UIColor = .init(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
   /// The default background color of the text field slots after entering a character
   public var otpFilledBackgroundColor: UIColor = .init(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
-  /// The default corner raduis of the text field slots
-  public var otpCornerRaduis: CGFloat = 10
+  /// The default corner radius of the text field slots
+  public var otpCornerRadius: CGFloat = 10
   /// The default border color of the text field slots before entering a character
   public var otpDefaultBorderColor: UIColor = .clear
   /// The border color of the text field slots after entering a character
@@ -34,6 +34,8 @@ public class AEOTPTextField: UITextField {
   public var otpFontSize: CGFloat = 14
   /// The default font of the text
   public var otpFont: UIFont = .systemFont(ofSize: 14)
+  /// The first textfield should be active or not
+  public var isFirstTextFieldActive: Bool = false
   /// The delegate of the AEOTPTextFieldDelegate protocol
   public weak var otpDelegate: AEOTPTextFieldDelegate?
   
@@ -115,18 +117,26 @@ private extension AEOTPTextField {
     stackView.alignment = .fill
     stackView.distribution = .fillEqually
     stackView.spacing = 8
-    for _ in 1 ... count {
-      let label = createLabel()
+    for index in 1 ... count {
+      let label: UILabel
+      if index == 1 {
+        label = createLabel(first: isFirstTextFieldActive)
+      }
+      else {
+        label = createLabel()
+      }
       stackView.addArrangedSubview(label)
       digitLabels.append(label)
     }
     return stackView
   }
   
-  func createLabel() -> UILabel {
+  func createLabel(first: Bool = false) -> UILabel {
     let label = UILabel()
-    label.backgroundColor = otpBackgroundColor
-    label.layer.cornerRadius = otpCornerRaduis
+    label.backgroundColor = first ? otpFilledBackgroundColor : otpBackgroundColor
+    label.layer.borderColor = first ? otpFilledBorderColor.cgColor : otpDefaultBorderColor.cgColor
+    label.layer.borderWidth = first ? otpFilledBorderWidth : otpDefaultBorderWidth
+    label.layer.cornerRadius = otpCornerRadius
     label.translatesAutoresizingMaskIntoConstraints = false
     label.textAlignment = .center
     label.textColor = otpTextColor

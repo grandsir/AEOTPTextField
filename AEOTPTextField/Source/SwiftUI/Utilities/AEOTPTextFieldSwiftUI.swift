@@ -29,7 +29,7 @@ class AEOTPTextFieldSwiftUI: AEOTPTextField {
         self.otpDefaultCharacter = otpDefaultCharacter
         self.otpBackgroundColor = otpBackgroundColor
         self.otpFilledBackgroundColor = otpFilledBackgroundColor
-        self.otpCornerRaduis = otpCornerRaduis
+        self.otpCornerRadius = otpCornerRaduis
         self.otpDefaultBorderColor = otpDefaultBorderColor
         self.otpFilledBorderColor = otpFilledBorderColor
         self.otpDefaultBorderWidth = otpDefaultBorderWidth
